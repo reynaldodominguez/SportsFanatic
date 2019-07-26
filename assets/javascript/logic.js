@@ -1,3 +1,4 @@
+console.log('logic.js is connected');
 /////////////////////////////////////
 // .NAME
 //  logic.js
