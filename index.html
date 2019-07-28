@@ -32,10 +32,10 @@
     </nav>
         <!--sidenav   -->
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="#">NFL</a></li>
-      <li><a href="#" class="nba">NBA</a></li>
-      <li><a href="#">MLB</a></li>
-      <li><a href="#">Soccer</a></li>
+      <li><a href="#" class="league_link"     id="nfl_link" data-leagueName="NFL">NFL</a></li>
+      <li><a href="#" class="nba league_link" id="nba_link" data-leagueName="NBA">NBA</a></li>
+      <li><a href="#" class="league_link"     id="mlb_link" data-leagueName="MLB">MLB</a></li>
+      <li><a href="#" class="league_link"     id="mls_link" data-leagueName="American Major League Soccer">Soccer</a></li>
     </ul>
     
     <div class="container">
@@ -92,6 +92,19 @@
  </div>  <!--container ending tag  -->
 
 
+ <!-- A div with a table to test output from API calls -->
+ <div class="container" id="test-container">
+   <div class="row">
+     <div class="col">
+       <table class="table table-hover" id="test_table">
+         <thead> <!-- Table heading row goes here --> </thead>
+         <tbody> <!-- Table data rows go here --></tbody>
+       </table>
+     </div>
+   </div>
+ </div>
+
+
     
 
 
@@ -99,6 +112,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>M.AutoInit()</script>
-    <script src="assets/javascript/game.js"></script> 
+    <!-- <script src="assets/javascript/game.js"></script>  -->
+
+    <!-- Sports Leagues -->
+    <script src="assets/javascript/league.js"></script> 
 </body>
 </html>
