@@ -57,8 +57,16 @@ function renderTeamsCallback( ajaxResult ) {
         var tr = $("<tr>"); 
         tr.attr("data-rowkey", ajaxResult.teams[i].idTeam); 
         //Create a <td> element the remaining elements from the ajaxResult
-        var column1 = $("<td>").text(ajaxResult.teams[i].strTeam);
-        var column2 = $("<td>").html("<img src = '" + ajaxResult.teams[i].strTeamBadge + "' style='width:100px;height:100px' >");
+        var column1 = $("<td id='" + ajaxResult.teams[i].idTeam +"'>");
+        column1.text(ajaxResult.teams[i].strTeam);
+        column1.addClass("team_name");
+
+        var column2 = $("<td>").html("<a href='output_test.html?idTeam="  +
+                                      ajaxResult.teams[i].idTeam          +
+                                      "' target='_blank'><img src = '"    + 
+                                      ajaxResult.teams[i].strTeamBadge    + 
+                                      "' style='width:100px;height:100px' ></a>");
+        column2.addClass("team_logo");
         //Append the <td>'s to the <tr>
         tr.append(column1).append(column2);
  
@@ -68,10 +76,11 @@ function renderTeamsCallback( ajaxResult ) {
 }
 
 $( function () { 
+
+    console.log("league.js: Javascript OK");
     
     // Bind the function to the <a> link in the navbar.
     $( ".league_link" ).click(function() {
-        console.log("Clicked on :" + $(this).attr("data-leagueName"));
         getTeamsInLeague($(this).attr("data-leagueName"));
     });
 
