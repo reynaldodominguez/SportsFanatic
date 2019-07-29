@@ -1,6 +1,8 @@
 console.log('logic.js is connected');
 $(document).ready(function(){
     console.log('js connected');
+  //Hides the leauge page on load
+    $('.div2').hide();
 
  //Materialize init
     $('.slider').slider({

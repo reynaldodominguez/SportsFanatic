@@ -81,6 +81,9 @@ $( function () {
     
     // Bind the function to the <a> link in the navbar.
     $( ".league_link" ).click(function() {
+    // Hides the landing page, then displays the leauge page.  
+        $('.div1').hide();
+        $('.div2').show();
         getTeamsInLeague($(this).attr("data-leagueName"));
     });
 
