@@ -50,6 +50,7 @@ function renderTeamDescCallback(ajaxResult) {
 
     //Create each row in the table and append to <tbody>
 
+
     //Create the row element for the table
     var tr = $("<tr>");
     tr.attr("data-rowkey", ajaxResult.teams[0].idTeam);
@@ -65,10 +66,67 @@ function renderTeamDescCallback(ajaxResult) {
 };
 
 
-$(function () {
+function getTeamRecentEvents( idTeam ) {
 
+    //Given the idTeam parameter, return the 5 most recent events' information for the team.
+
+    //event.preventDefault(); // Prevent default form processing.
+
+    var queryURL = "https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=" + idTeam ;
+    
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then( function (response)  { 
+          renderTeamRecentsCallback(response) ; 
+      } );
+
+}
+
+
+// This function gets called when the ajax call in getTeamRecentEvents() completes.
+// It will render the data in the page's HTML elements. 
+function renderTeamRecentsCallback(ajaxResult) {
+    
+    $( "#team_recents_table thead" ).empty();
+    $( "#team_recents_table tbody" ).empty();
+    
+    //Create the table headings and append to <thead>:
+      var th_tr1     = $("<th scope='col'>") ;
+      th_tr1.text(" Date " ); 
+      var th_tr2     = $("<th scope='col'>") ;
+      th_tr2.text(" Teams "); 
+      $( "#team_recents_table thead" ).append(th_tr1).append(th_tr2);
+
+    //Create each row in the table and append to <tbody>
+    for (var i = 0; i < ajaxResult.results.length; i++) {
+
+        //Create the row element for the table
+        var tr = $("<tr>"); 
+        tr.attr("data-rowkey", ajaxResult.results[i].idTeam); 
+        //Create a <td> element the remaining elements from the ajaxResult
+        var column1 = $("<td>").text(ajaxResult.results[i].dateEvent);
+        //Format a string to show results, if available from the API, with format:
+        // "Away Team"(score) vs "Home Team"(score)
+        var teamsString  =  ajaxResult.results[i].strAwayTeam; 
+        teamsString      += (ajaxResult.results[i].intAwayScore == null) ? " " : "(" + ajaxResult.results[i].intAwayScore +")" ;
+        teamsString      += " vs ";
+        teamsString      += ajaxResult.results[i].strHomeTeam;
+        teamsString      += (ajaxResult.results[i].intHomeScore == null) ? " " : "(" + ajaxResult.results[i].intHomeScore + ")" ;
+        var column2 = $("<td>").text(teamsString);
+        //Append the <td>'s to the <tr>
+        tr.append(column1).append(column2);
+ 
+        //Append the row to the <tbody>
+        $("#team_recents_table tbody").append(tr);
+    };
+
+
+}
+
+$( function () { 
     console.log("team.js: Javascript OK");
-
     $.urlParam = function (name) {
         var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
         if (results == null) {
@@ -76,10 +134,8 @@ $(function () {
         }
         return decodeURI(results[1]) || 0;
     }
-
-
-    getTeamDescription($.urlParam("idTeam"));
-
+    getTeamDescription(  $.urlParam( "idTeam" ) );
+    getTeamRecentEvents( $.urlParam( "idTeam" ) )
 });
 
 
@@ -106,4 +162,3 @@ function upcominEvents(team) {
         }
     });
 }
-
