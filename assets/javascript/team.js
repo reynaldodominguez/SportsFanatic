@@ -26,7 +26,9 @@ function getTeamDescription(idTeam) {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
+        console.log(response);
         renderTeamDescCallback(response);
+        
     });
 
 }
@@ -63,6 +65,16 @@ function renderTeamDescCallback(ajaxResult) {
 
     //Append the row to the <tbody>
     $("#team_test_table tbody").append(tr);
+    
+///////////////////////////////////////////////////////////////
+            //Adding Rick-branch code
+    var teamBanner = $('<img>').attr('src',ajaxResult.teams[0].strTeamBanner);
+    $('#team-banner').append(teamBanner);
+    var teamName = $('<h3>').text(ajaxResult.teams[0].strTeam);
+    $('#team-name').append(teamName);
+    var teamStadium = $('<img>').attr('src',ajaxResult.teams[0].strStadiumThumb).attr('class','team-stadium-img');
+    var stadiumName = $('<h5>').attr('class', 'center-align').text(ajaxResult.teams[0].strStadium);
+    $('#team-stadium').append(teamStadium).append(stadiumName);
 };
 
 
