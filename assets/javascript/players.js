@@ -87,9 +87,6 @@ function renderPlayersCallback( ajaxResult ) {
         var span1 = $('<h4>').attr('class', 'center-align').text('Position: ' + ajaxResult.player[i].strPosition);
         var span2 = $('<h4>').attr('class', 'center-align').text('Height:' + ajaxResult.player[i].strHeight);
         divCardImage = divCardImage.append(img).append(playerName).append(span1).append(span2);
-        // var divCardContent = $('<div>').attr('class', 'card-content');
-        // var cardContentPtag = $('<p>').text(ajaxResult.player[i].strDescriptionEN)
-        //divCard = divCard.append(divCardContent).append(cardContentPtag);
         $('#players-on-team').append(divRow);
     };
 }
