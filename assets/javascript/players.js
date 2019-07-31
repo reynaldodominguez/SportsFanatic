@@ -26,6 +26,7 @@ function getPlayersInTeam( idTeam ) {
         url: queryURL,
         method: "GET"
       }).then( function (response)  { 
+          console.log(response);
           renderPlayersCallback(response) ; 
       } );
 
@@ -71,6 +72,25 @@ function renderPlayersCallback( ajaxResult ) {
  
         //Append the row to the <tbody>
         $("#players_table tbody").append(tr);
+
+    ////////////////////////////////////////////////////////////////////////////
+                            //Adding rick-branch code
+        var divRow = $('<div>').attr('class', 'row');
+        var divCol = $('<div>').attr('class', 'col s12 m7');
+        divRow = divRow.append(divCol);
+        var divCard = $('<div>').attr('class', 'card');
+        divCol = divCol.append(divCard);
+        var divCardImage = $('<div>').attr('class', 'card-image');
+        divCard = divCard.append(divCardImage);
+        var img = $('<img>').attr('src', ajaxResult.player[i].strThumb).attr('class', 'Player-img');
+        var playerName =$('<h3>').attr('class', 'player-name center-align').text(ajaxResult.player[i].strPlayer);
+        var span1 = $('<h4>').attr('class', 'center-align').text('Position: ' + ajaxResult.player[i].strPosition);
+        var span2 = $('<h4>').attr('class', 'center-align').text('Height:' + ajaxResult.player[i].strHeight);
+        divCardImage = divCardImage.append(img).append(playerName).append(span1).append(span2);
+        // var divCardContent = $('<div>').attr('class', 'card-content');
+        // var cardContentPtag = $('<p>').text(ajaxResult.player[i].strDescriptionEN)
+        //divCard = divCard.append(divCardContent).append(cardContentPtag);
+        $('#players-on-team').append(divRow);
     };
 }
 

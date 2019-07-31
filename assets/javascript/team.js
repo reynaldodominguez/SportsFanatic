@@ -65,7 +65,8 @@ function renderTeamDescCallback(ajaxResult) {
 
     //Append the row to the <tbody>
     $("#team_test_table tbody").append(tr);
-///////////////////////////////////////////////
+    
+///////////////////////////////////////////////////////////////
             //Adding Rick-branch code
     var teamBanner = $('<img>').attr('src',ajaxResult.teams[0].strTeamBanner);
     $('#team-banner').append(teamBanner);
