@@ -11,8 +11,6 @@
 //   
 //   
 //////////////////////////////////////////////////////////////////////////////////////
-
-
 //////////////////////////////////////////
 // Globals
 //////////////////////////////////////////
@@ -28,8 +26,8 @@ function populateSearchTerms () {
   for(var i = 0; i < leagues.length; i++){
     var queryURL = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=" + leagues[i];
     $.ajax({
-        url: queryURL,
-        method: "GET"
+      url: queryURL,
+      method: "GET"
     }).then(function (response) {
       for(var j = 0; j < response.teams.length;j++){
         teams.push(response.teams[j].strTeam);  
@@ -69,7 +67,6 @@ $(document).ready(function(){
  // Load teams from all leagues, only if teams[] is empty, so it does not get called every time.
  if (teams.length === 0) {
    populateSearchTerms();
-   console.log(teams); 
  }
 
 }); // end of $(document).ready()
