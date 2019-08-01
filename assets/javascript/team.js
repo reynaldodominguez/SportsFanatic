@@ -14,6 +14,8 @@
 //////////////////////////////////////////////////////////////////////////////////////
 
 //functions
+var teamName = "";
+
 function getTeamDescription(idTeam) {
 
     //Given the idTeam parameter, return the team description field from the API data.
@@ -54,6 +56,9 @@ function renderTeamDescCallback(ajaxResult) {
     tr.attr("data-rowkey", ajaxResult.teams[0].idTeam);
     //Create a <td> element the remaining elements from the ajaxResult
     var column1 = $("<td>").text(ajaxResult.teams[0].strTeam);
+    teamName = ajaxResult.teams[0].strTeam;
+    console.log(teamName);
+    upcomingEvents     (teamName);
     var column2 = $("<td>").text(ajaxResult.teams[0].strDescriptionEN);
     //upcominEvents(ajaxResult.teams[0].strTeam);
     //Append the <td>'s to the <tr>
@@ -130,8 +135,22 @@ function renderTeamRecentsCallback(ajaxResult) {
 function upcomingEvents(team) {
 
     console.log(team);
-    var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&keyword=" + team + "&locale=*";
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=0phArGmYm8abdfp2VA0WZUmwUOrtVAq6&keyword=" + team + "&locale=*";
 
+    $( "#team_next_table thead" ).empty();
+    $( "#team_next_table tbody" ).empty();
+    
+    //Create the table headings and append to <thead>:
+    var th_date= $("<th>") ;
+    th_date.text("Date" ); 
+    var th_time = $("<th>") ;
+    th_time.text("Time"); 
+    var th_name = $("<th>") ;
+    th_name.text("Teams"); 
+    var th_link = $("<th>") ;
+    th_link.text("Tickets"); 
+
+    $( "#team_next_table thead" ).append(th_date).append(th_time).append(th_name).append(th_link);
 
     $.ajax({
         url: queryURL,
@@ -141,6 +160,9 @@ function upcomingEvents(team) {
         console.log(response);
         //get the next 5 events of the team from ticket master
         for(var i=0; i<5; i++) {
+
+
+            var newTr = $("<tr>");
             //date of the game
             console.log(response._embedded.events[i].dates.start.localDate); 
             //time of the game
@@ -149,6 +171,16 @@ function upcomingEvents(team) {
             console.log(response._embedded.events[i].name); 
             //url to buy tickets to the game
             console.log(response._embedded.events[i].url); 
+            var newTd_date= $("<td>") ;
+            newTd_date.text(response._embedded.events[i].dates.start.localDate); 
+            var newTd_time = $("<td>") ;
+            newTd_time.text(response._embedded.events[i].dates.start.localTime); 
+            var newTd_name = $("<td>") ;
+            newTd_name.text(response._embedded.events[i].name); 
+            var ticketButton = $("<button>") ;
+            ticketButton.text("Tickets"); 
+            newTr.append(newTd_date).append(newTd_time).append(newTd_name).append(ticketButton);
+            $( "#team_next_table tbody" ).append(newTr);
         }
     });
 }
@@ -170,6 +202,6 @@ $( function() {
 
     getTeamDescription ( $.urlParam( "idTeam" ) );
     getTeamRecentEvents( $.urlParam( "idTeam" ) );
-    upcomingEvents     ( $.urlParam( "idTeam" ) );
+    //upcomingEvents     (teamName);
 
 });
