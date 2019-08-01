@@ -15,5 +15,22 @@ nav .brand-logo{
 .team-stadium-img{
     width: 800px;
     height: 300px;
+}
 
+#last-events{
+    margin-bottom: 100px;
+}
+
+.player-card{
+    border-radius: 15px 15px 15px 15px;
+}
+
+.player-name{
+    font-size: 30px;
+}
+
+.player-position{
+    font-size: 26px;
+    padding: 10px;
+    margin-top: 0;
 }
