@@ -11,24 +11,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <title>Project One plan B</title>
+    <title>Teams and Players</title>
 </head>
 <body>
     <!-- Navigation -->
-    
-   <br>
-   <header id="team-banner" class="center-align"></header>
 
-
-   <div class="container">
+<section class="section section-team-stadium center">
+  <header id="team-banner" class="center-align"></header> 
+  <div class="container">
        <!-- Team Name heading -->
-       <div id="team-name" class="center-align"></div>
+       <div id="team-name" class="row center-align"></div>
        <br>
        <!-- Team Stadium Image -->
-       <div id="team-stadium" class="center-align"></div>
-       <br>
-       <hr>
+       <div id="team-stadium" class="row center-align"></div>
+       <!-- <br>
+       <hr> -->
+   </div>
+  </section>
+
         <!-- Last Five events -->
+<section class="section section-last-events center">
+  <div class="container">       
+    <div class="row ">  
       <div id="last-events" class="">
         <h3 class="center-align">Previous Team Events</h3>
         <table class="table table-hover" id="team_recents_table">
@@ -36,12 +40,24 @@
           <tbody> <!-- Table data rows go here --></tbody>
         </table>
       </div>
+    </div>
+  </div>
+</section>
+
+
+
+
        <!-- Players and Team Manager -->
+<section class="section section-players center">
+  <div class="container">       
+    <div class="row ">  
        <h3 class="center-align">Players & Coach</h3>
        <hr>
       
        <div id="players-on-team"></div>
    </div>
+  </div>
+</section>
 
    
 
