@@ -12,22 +12,39 @@ nav .brand-logo{
     margin-left: 10px;
 }
 
-
-
+.section-team-stadium{
+    background-color: gainsboro;
+}
+.section-last-events {
+    /* background-image: url(/assets/images/green-pattern-surface-131683.jpg); */
+    background-color: #778899;
+}
+.section-players{
+    /* background-image: url(/assets/images/field-grass-green-65281.jpg); */
+    background-color: darkslategrey;
+}
 #last-events{
+    
     margin-bottom: 100px;
 }
 
 .player-card{
     border-radius: 15px 15px 15px 15px;
+    height:550px;
 }
 
 .player-name{
-    font-size: 30px;
+    font-size: 40px;
+    color: #424242;
 }
 
 .player-position{
     font-size: 26px;
     padding: 10px;
     margin-top: 0;
+    color: #424242;
+}
+
+.team-date-for-table{
+    color: orange;
 }

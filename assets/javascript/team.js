@@ -103,9 +103,9 @@ function renderTeamRecentsCallback(ajaxResult) {
     
     //Create the table headings and append to <thead>:
     var th_tr1     = $("<th scope='col'>") ;
-    th_tr1.text(" Date " ); 
+    th_tr1.text(" Date " ).attr('class', 'team-date-for-table'); 
     var th_tr2     = $("<th scope='col'>") ;
-    th_tr2.text(" Teams "); 
+    th_tr2.text(" Teams ").attr('class', 'team-title-for-table'); 
     $( "#team_recents_table thead" ).append(th_tr1).append(th_tr2);
 
     //Create each row in the table and append to <tbody>
@@ -115,7 +115,7 @@ function renderTeamRecentsCallback(ajaxResult) {
         var tr = $("<tr>"); 
         tr.attr("data-rowkey", ajaxResult.results[i].idTeam); 
         //Create a <td> element the remaining elements from the ajaxResult
-        var column1 = $("<td>").text(ajaxResult.results[i].dateEvent);
+        var column1 = $("<td>").text(ajaxResult.results[i].dateEvent).attr('class', 'team-pastdate-events-for-table');
         //Format a string to show results, if available from the API, with format:
         // "Away Team"(score) vs "Home Team"(score)
         var teamsString  =  ajaxResult.results[i].strAwayTeam; 
@@ -123,7 +123,7 @@ function renderTeamRecentsCallback(ajaxResult) {
         teamsString      += " vs ";
         teamsString      += ajaxResult.results[i].strHomeTeam;
         teamsString      += (ajaxResult.results[i].intHomeScore == null) ? " " : "(" + ajaxResult.results[i].intHomeScore + ")" ;
-        var column2 = $("<td>").text(teamsString);
+        var column2 = $("<td>").text(teamsString).attr('class', 'team-past-events-for-table');
         //Append the <td>'s to the <tr>
         tr.append(column1).append(column2);
  
