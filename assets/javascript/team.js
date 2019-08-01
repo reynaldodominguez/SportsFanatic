@@ -179,10 +179,18 @@ function upcomingEvents(team) {
             newTd_name.text(response._embedded.events[i].name); 
             var ticketButton = $("<button>") ;
             ticketButton.text("Tickets"); 
+            ticketButton.attr("class", "tickButton");
+            ticketButton.attr("src", response._embedded.events[i].url);
             newTr.append(newTd_date).append(newTd_time).append(newTd_name).append(ticketButton);
             $( "#team_next_table tbody" ).append(newTr);
         }
     });
+}
+$(document).on("click", ".tickButton", openUrl);
+
+function openUrl(){
+    console.log("src", $(this).attr("src"));
+    location.href = $(this).attr("src");
 }
 
 $( function() { 
