@@ -190,7 +190,7 @@ $(document).on("click", ".tickButton", openUrl);
 
 function openUrl(){
     console.log("src", $(this).attr("src"));
-    location.href = $(this).attr("src");
+    window.open($(this).attr("src"), '_blank');
 }
 
 $( function() { 
@@ -210,6 +210,5 @@ $( function() {
 
     getTeamDescription ( $.urlParam( "idTeam" ) );
     getTeamRecentEvents( $.urlParam( "idTeam" ) );
-    //upcomingEvents     (teamName);
 
 });
