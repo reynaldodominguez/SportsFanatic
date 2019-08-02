@@ -78,4 +78,10 @@ nav .brand-logo{
 }
 .fab {
     padding: 10px;
+.team-date-for-table{
+    color: orange;
+}
+
+.tickButton{
+    margin-top: 15px;
 }
