@@ -1,5 +1,5 @@
 /* Moves the slider 20px away from the Navbar */
-h3. {
+h3 {
     color: #2F4F4F;
 }
 
@@ -78,14 +78,11 @@ nav .brand-logo{
 }
 .fab {
     padding: 10px;
+}
 .team-date-for-table{
     color: orange;
 }
 
 .tickButton{
     margin-top: 15px;
-}
-/* Working input-feild style under here */
-.input-field{
-    
 }
