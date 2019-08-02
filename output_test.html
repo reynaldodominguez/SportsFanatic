@@ -12,6 +12,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <!-- Link to use Font Awesome  -->
+  <script src="https://kit.fontawesome.com/382b4a5e97.js"></script>
+
+  <!-- Goople fonts link -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Rubik|Source+Code+Pro&display=swap" rel="stylesheet">
+
+
   <title>Teams and Players</title>
 </head>
 
@@ -32,7 +40,7 @@
   </section>
 
   <!-- Last Five events -->
-  <section class="section section-last-events center">
+  <section class="section section-previous-events center">
     <div class="container">
       <div class="row ">
         <div id="last-events" class="">
@@ -51,21 +59,25 @@
   </section>
 
 
-
-
-  <div class="container">
-    <div id="next-events" class="">
-      <h3 class="center-align">Next Team Events</h3>
-      <table class="table table-hover" id="team_next_table">
-        <thead>
-          <!-- Table heading row goes here -->
-        </thead>
-        <tbody>
-          <!-- Table data rows go here -->
-        </tbody>
-      </table>
+<!-- Next Events Section -->
+  <section class="section section-upcoming-events center">
+    <div class="container">
+      <div class="row center">
+        <div id="next-events" class="">
+          <h3 class="center-align next-team">Next Team Events</h3>
+          <table class="table table-hover" id="team_next_table">
+            <thead>
+              <!-- Table heading row goes here -->
+            </thead>
+            <tbody>
+              <!-- Table data rows go here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
 
   <!-- Players and Team Manager -->
   <section class="section section-players center">
@@ -81,7 +93,28 @@
 
 
 
+  <!-- SECTION FOLLOW ON SOCIAL MEDIA PLATFORMS-->
 
+  <section class="section section-follow teal darken-2 white-text center">
+    <div class="container">
+      <div class="row">
+        <div class="s12">
+          <h4>Follow Sports Fanatic</h4>
+          <p>Follow us on social media for the lastest clips on sports events!
+            <a href="https//facebook.com" target="_blank" class="white-text"></a>
+            <i class="fab fa-facebook fa-4x"></i>
+
+            <a href="https//twitter.com" target="_blank" class="white-text"></a>
+            <i class="fab fa-twitter fa-4x"></i>
+
+            <a href="https//linkedin.com" target="_blank" class="white-text"></a>
+            <i class="fab fa-linkedin fa-4x"></i>
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

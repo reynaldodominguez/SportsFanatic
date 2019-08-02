@@ -103,9 +103,9 @@ function renderTeamRecentsCallback(ajaxResult) {
     
     //Create the table headings and append to <thead>:
     var th_tr1     = $("<th scope='col'>") ;
-    th_tr1.text(" Date " ).attr('class', 'team-date-for-table'); 
+    th_tr1.text(" Date " ).attr('class', 'team-table-title'); 
     var th_tr2     = $("<th scope='col'>") ;
-    th_tr2.text(" Teams ").attr('class', 'team-title-for-table'); 
+    th_tr2.text(" Teams ").attr('class', 'team-table-title'); 
     $( "#team_recents_table thead" ).append(th_tr1).append(th_tr2);
 
     //Create each row in the table and append to <tbody>
@@ -115,7 +115,7 @@ function renderTeamRecentsCallback(ajaxResult) {
         var tr = $("<tr>"); 
         tr.attr("data-rowkey", ajaxResult.results[i].idTeam); 
         //Create a <td> element the remaining elements from the ajaxResult
-        var column1 = $("<td>").text(ajaxResult.results[i].dateEvent).attr('class', 'team-pastdate-events-for-table');
+        var column1 = $("<td>").text(ajaxResult.results[i].dateEvent).attr('class', 'team-events-table');
         //Format a string to show results, if available from the API, with format:
         // "Away Team"(score) vs "Home Team"(score)
         var teamsString  =  ajaxResult.results[i].strAwayTeam; 
@@ -123,7 +123,7 @@ function renderTeamRecentsCallback(ajaxResult) {
         teamsString      += " vs ";
         teamsString      += ajaxResult.results[i].strHomeTeam;
         teamsString      += (ajaxResult.results[i].intHomeScore == null) ? " " : "(" + ajaxResult.results[i].intHomeScore + ")" ;
-        var column2 = $("<td>").text(teamsString).attr('class', 'team-past-events-for-table');
+        var column2 = $("<td>").text(teamsString).attr('class', 'team-events-table');
         //Append the <td>'s to the <tr>
         tr.append(column1).append(column2);
  
@@ -142,13 +142,13 @@ function upcomingEvents(team) {
     
     //Create the table headings and append to <thead>:
     var th_date= $("<th>") ;
-    th_date.text("Date" ); 
+    th_date.text("Date" ).attr('class', 'team-table-title-next'); 
     var th_time = $("<th>") ;
-    th_time.text("Time"); 
+    th_time.text("Time").attr('class', 'team-table-title-next'); 
     var th_name = $("<th>") ;
-    th_name.text("Teams"); 
+    th_name.text("Teams").attr('class', 'team-table-title-next'); 
     var th_link = $("<th>") ;
-    th_link.text("Tickets"); 
+    th_link.text("Tickets").attr('class', 'team-table-title-next'); 
 
     $( "#team_next_table thead" ).append(th_date).append(th_time).append(th_name).append(th_link);
 
@@ -172,12 +172,12 @@ function upcomingEvents(team) {
             //url to buy tickets to the game
             console.log(response._embedded.events[i].url); 
             var newTd_date= $("<td>") ;
-            newTd_date.text(response._embedded.events[i].dates.start.localDate); 
+            newTd_date.text(response._embedded.events[i].dates.start.localDate).attr('class', 'team-table-events-next'); 
             var newTd_time = $("<td>") ;
-            newTd_time.text(response._embedded.events[i].dates.start.localTime); 
+            newTd_time.text(response._embedded.events[i].dates.start.localTime).attr('class', 'team-table-events-next'); 
             var newTd_name = $("<td>") ;
-            newTd_name.text(response._embedded.events[i].name); 
-            var ticketButton = $("<button>") ;
+            newTd_name.text(response._embedded.events[i].name).attr('class', 'team-table-events-next'); 
+            var ticketButton = $("<button>").attr('class', 'btn btn-tickets') ;
             ticketButton.text("Tickets"); 
             ticketButton.attr("class", "tickButton");
             ticketButton.attr("src", response._embedded.events[i].url);
