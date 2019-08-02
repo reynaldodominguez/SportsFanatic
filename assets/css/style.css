@@ -1,4 +1,8 @@
 /* Moves the slider 20px away from the Navbar */
+h3. {
+    color: #2F4F4F;
+}
+
 .slider{
     margin-top:20px;
 }
@@ -15,9 +19,13 @@ nav .brand-logo{
 .section-team-stadium{
     background-color: gainsboro;
 }
-.section-last-events {
+.section-previous-events {
     /* background-image: url(/assets/images/green-pattern-surface-131683.jpg); */
-    background-color: #778899;
+    background-color: darkslategrey;
+}
+
+.section-upcoming-events{
+    background-color: gainsboro;
 }
 .section-players{
     /* background-image: url(/assets/images/field-grass-green-65281.jpg); */
@@ -45,6 +53,29 @@ nav .brand-logo{
     color: #424242;
 }
 
-.team-date-for-table{
-    color: orange;
+.team-table-title {
+    font-size: 32px;
+    color: lightgrey;
+}
+
+.team-events-table {
+    font-size: 20px;
+    color: lightgrey;
+}
+
+.team-table-title-next {
+    font-size: 32px;
+    color: darkslategrey;
+}
+
+.team-table-events-next {
+    font-size: 20px;
+    color: darkslategrey;
+}
+
+.btn-tickets {
+    background-color: darkslategrey;
+}
+.fab {
+    padding: 10px;
 }
