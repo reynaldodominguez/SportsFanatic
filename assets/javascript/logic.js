@@ -102,7 +102,7 @@ $(document).ready(function () {
         method: "GET"
     }).then(function (response) {
        console.log(response);
-       window.open("output_test.html?idTeam=" + response.teams[0].idTeam);
+       window.open("team.html?idTeam=" + response.teams[0].idTeam);
 
     });
   }
