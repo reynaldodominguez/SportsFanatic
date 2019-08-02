@@ -30,8 +30,10 @@ function populateSearchTerms() {
       method: "GET"
     }).then(function (response) {
       for (var j = 0; j < response.teams.length; j++) {
+        var tempTeam = response.teams[j].strTeam;
+        tempTeam = tempTeam.toLowerCase();
+        teams.push(tempTeam);
         
-        teams.push(response.teams[j].strTeam);
       }
     });
 
@@ -76,9 +78,11 @@ $(document).ready(function () {
     count = $("#newSearch").val().trim().length;
   
 
-    console.log("Position: " + teams.indexOf($("#newSearch").val().trim()));
+    
     if (event.keyCode === 13) {
-      if(teams.indexOf($("#newSearch").val().trim()) > -1 ){
+      console.log("Position: " + teams.indexOf($("#newSearch").val().trim().toLowerCase()));
+      console.log($("#newSearch").val().trim().toLowerCase());
+      if(teams.indexOf($("#newSearch").val().trim().toLowerCase()) > -1 ){
         console.log("find")
         teamSearch($("#newSearch").val().trim());
         $("#error-message").text("");
@@ -88,7 +92,7 @@ $(document).ready(function () {
       }
       $("#newSearch").val("");
     }   
-    console.log(count);
+    //console.log(count);
 
   })
 
@@ -106,9 +110,6 @@ $(document).ready(function () {
 
     });
   }
-
-
-
 
 
 }); // end of $(document).ready()
