@@ -61,7 +61,7 @@ function renderTeamsCallback(ajaxResult) {
         column1.text(ajaxResult.teams[i].strTeam);
         column1.addClass("team_name");
 
-        var column2 = $("<td>").html("<a href='output_test.html?idTeam=" +
+        var column2 = $("<td>").html("<a href='team.html?idTeam=" +
             ajaxResult.teams[i].idTeam +
             "' target='_blank'><img src = '" +
             ajaxResult.teams[i].strTeamBadge +
