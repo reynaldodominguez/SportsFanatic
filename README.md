@@ -10,7 +10,7 @@ Sports Fanatic is an easy to use application that helps the user stay up to date
  * Jose Robles - Backend Development , Application Design (Javascript, API, Ajax).
  
  ### Usage
- The application has been deployed on GitHub Pages, available at https://j0serobles.github.io/SportsFanatic/
+ The application has been deployed on GitHub Pages, available at https://reynaldodominguez.github.io/SportsFanatic/
  From the landing page, the user can follow one of the links for team leagues at the top of the page, or they can enter a team name in the search bar.  When following one of the league links (NFL, NBA, MLB, Soccer), they will be taken to a page showing all the teams under that league.  When searching for a team, if the team name is found, they will be shown the team page. 
  In the league teams page, the user can click on the team's logo or name to be taken to the team page for the selected team. 
  The team page is divided into sections displaying this information:
